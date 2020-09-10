@@ -17,7 +17,7 @@ app.use(cors());
 mongoose
   .connect(
     process.env.MONGODB_URI ||
-      'mongodb+srv://leet-rex:Veer2000@password-auth.uagdt.mongodb.net/password-managment',
+      'YOUR MONGODB',
     { useNewUrlParser: true, useCreateIndex: true }
   )
   .then(() => {
