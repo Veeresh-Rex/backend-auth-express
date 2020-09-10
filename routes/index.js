@@ -24,7 +24,7 @@ router.get('/', function (req, res, next) {
   if (loginUser) {
     res.redirect('/dashboard');
   } else {
-    res.render('index', { title: 'Password Management System', error: '' });
+    res.render('index', { title: 'Management System', error: '' });
   }
 });
 router.post('/', (req, res) => {
@@ -56,7 +56,7 @@ router.post('/', (req, res) => {
       } else {
         //  res.json({ msg: 'Invalid username or passoword' });
         res.render('index', {
-          title: 'Password Management',
+          title: 'Management',
           error: 'Invalid Username or Password',
         });
       }
@@ -67,7 +67,7 @@ router.post('/', (req, res) => {
 });
 router.get('/signup', (req, res) => {
   res.render('Signup', {
-    title: 'Password Management',
+    title: 'Management',
     error: '',
   });
 });
@@ -139,31 +139,20 @@ router.post(
         title: 'Password Management',
         error: errors.mapped(),
       });
-      // res.status(200).json({ erre: errors.mapped() });
+    
     }
   }
 );
 router.get('/logout', function (req, res, next) {
   localStorage.removeItem('userToken');
-
   res.redirect('/');
 });
-router.get('/passwordcatagory', function (req, res) {
-  res.render('password_catagory', { title: 'Password list' });
-});
+
 router.get('/dashboard', function (req, res) {
   console.log('Test passed');
-  // res.json({ msg: 'ejdjjd' });
-  const data = {
-    name: 'Veeresh maurya',
-    title: 'Dashboard',
-    roll: 1804610113,
-    clg: 'maharana pratap engineering college',
-  };
-  res.render('Dashboard', { link: data });
+  
+  res.render('Dashboard', { title: 'Dashboard' });
 });
-router.get('/viewpassword', function (req, res) {
-  res.render('viewpassword', { title: 'Password list' });
-});
+
 
 module.exports = router;
